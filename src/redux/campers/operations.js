@@ -9,7 +9,7 @@ export const fetchCampers = createAsyncThunk(
   'campers/fetchAll',
   async (_, thunkApi) => {
     try {
-      const response = await instance.get('/adverts');
+      const response = await instance.get('/campers');
       return response.data;
     } catch (error) {
       return thunkApi.rejectWithValue(error.message);
