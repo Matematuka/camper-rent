@@ -1,4 +1,4 @@
-    ![banner] url(/src/assets/images/stock-photo-summer-tourism-with-rv-campers-parked-in-a-row-in-a-caravan-parking-area-best-option-for-travel-1797003109.jpg)
+    ![banner] url(assets/images/stock-photo-summer-tourism-with-rv-campers-parked-in-a-row-in-a-caravan-parking-area-best-option-for-travel-1797003109.jpg)
 
                              CAMPER RENT IN UKRANE
 
