@@ -1,4 +1,5 @@
 import css from './FilterType.module.css';
+import icons from '../../assets/icon/symbol-defs.svg';
 
 const FilterType = ({ camper, handleSizeChange }) => {
   return (
@@ -17,7 +18,7 @@ const FilterType = ({ camper, handleSizeChange }) => {
           />
           <div className={css.radioBtnBox}>
             <svg className={css.filterIcons}>
-              <use href={`${icons}#icon-camper2`} />
+              <use href={`${icons}#camperVan`} />
             </svg>
             <p className={css.camperFilterBtnText}>Van</p>
           </div>
@@ -33,7 +34,7 @@ const FilterType = ({ camper, handleSizeChange }) => {
           />
           <div className={css.radioBtnBox}>
             <svg className={css.filterIcons}>
-              <use href={`${icons}#icon-camper1`} />
+              <use href={`${icons}#camperFully`} />
             </svg>
             <p className={css.camperFilterBtnText}>Fully Integrated</p>
           </div>
@@ -49,7 +50,7 @@ const FilterType = ({ camper, handleSizeChange }) => {
           />
           <div className={css.radioBtnBox}>
             <svg className={css.filterIcons}>
-              <use href={`${icons}#icon-camper`} />
+              <use href={`${icons}#camperAlcove`} />
             </svg>
             <p className={css.camperFilterBtnText}>Alcove</p>
           </div>

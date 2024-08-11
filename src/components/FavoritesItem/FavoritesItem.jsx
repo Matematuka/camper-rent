@@ -1,29 +1,12 @@
-import ModalWindow from '../Modal/ModalWindow/ModalWindow';
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
-
-import {
-  addItemLocalStorage,
-  addItemLocalStorageID,
-  restoreData,
-  restoreDataID,
-} from '../../utils/localStorage';
-import { dataLocal, dataLocalID } from '../../constans/constans';
-import { addIsFavorites } from '../../redux/favorites/operations';
-
-import css from './CatalogItem.module.css';
+import css from './FavoritesItem.module.css';
 import icons from '../../assets/icon/symbol-defs.svg';
+import ModalWindow from '../Modal/ModalWindow/ModalWindow';
+import { restoreData, restoreDataID } from '../../utils/localStorage';
 
-export const CatalogItem = ({ item }) => {
-  const dispatch = useDispatch();
-
+const FavoritesItem = ({ item, isNewArr }) => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
-  const [newStyle, setNewStyle] = useState(() => {
-    const test = dataLocalID();
-    const isActive = test.filter(element => element === item._id);
-    if (isActive.length > 0) return false;
-    return true;
-  });
+  const [newStyle, setNewStyle] = useState(false);
 
   const openModal = () => {
     setModalIsOpen(true);
@@ -33,24 +16,11 @@ export const CatalogItem = ({ item }) => {
     setModalIsOpen(false);
   };
 
-  const saveItem = newStyle => {
-    if (newStyle) {
-      let data = dataLocal();
-      data.push(item);
-
-      let dataId = dataLocalID();
-      dataId.push(item._id);
-
-      addItemLocalStorage('saved-camper', data);
-      addItemLocalStorageID('keyID', dataId);
-      setNewStyle(false);
-
-      dispatch(addIsFavorites(item._id));
-    } else {
-      restoreData(item);
-      restoreDataID(item._id);
-      setNewStyle(true);
-    }
+  const saveItem = () => {
+    restoreData(item);
+    restoreDataID(item._id);
+    setNewStyle(true);
+    isNewArr();
   };
 
   return (
@@ -59,7 +29,7 @@ export const CatalogItem = ({ item }) => {
       <div className={css.descriptionBox}>
         <div className={css.itemTitleBox}>
           <h2 className={css.itemTitle}>{item.name}</h2>
-          <p className={css.itemTitlePrice}>&#x20ac;{item.price},00</p>
+          <p className={css.itemTitlePrice}>&#x20ac;{item.price}</p>
         </div>
         <div className={css.itemSubTitleBox}>
           <p className={css.itemSubTitleRating}>
@@ -126,16 +96,13 @@ export const CatalogItem = ({ item }) => {
         <button className={css.buttonShowMore} onClick={() => openModal()}>
           Show more
         </button>
-        <button
-          style={{ background: 'inherit' }}
-          onClick={() => saveItem(newStyle)}
-        >
+        <button style={{ background: 'inherit' }} onClick={() => saveItem()}>
           <svg
             className={`${
               newStyle ? css.buttonIsFavotes : css.buttonFavotesIsActive
             }`}
           >
-            <use href={`${icons}#HeartDefault`} />
+            <use href={`${icons}#heartDefault`} />
           </svg>
         </button>
       </div>
@@ -148,3 +115,5 @@ export const CatalogItem = ({ item }) => {
     </div>
   );
 };
+
+export default FavoritesItem;

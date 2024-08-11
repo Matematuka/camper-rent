@@ -1,5 +1,6 @@
 import ModalReact from 'react-modal';
 import ModalForm from '../ModalWindow/ModalWindow';
+import icons from '../../../assets/icon/symbol-defs.svg';
 
 import css from './ModalWindow.module.css';
 
@@ -37,7 +38,7 @@ const ModalWindow = ({ modalIsOpen, closeModal, item }) => {
             <ul className={css.detailsFeaturesList}>
               <li className={css.detailsFeaturesItem}>
                 <svg className={css.detailsIcons} style={{ fill: 'black' }}>
-                  <use href={`${icons}#icon-users`} />
+                  <use href={`${icons}#Users`} />
                 </svg>
                 <span>{item.details.hob} adults</span>
               </li>

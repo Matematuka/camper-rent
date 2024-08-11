@@ -1,31 +1,28 @@
-import { useState } from 'react';
+import { CatalogItem } from '../CatalogItem/CatalogItem';
 import css from './CatalogList.module.css';
-import CatalogItem from '../CatalogItem/CatalogItem';
-import { useSelector } from 'react-redux';
-import { pagination } from '../../utils/pagination';
-import { selectAllCampers } from '../../redux/campers/selectors';
 
-const CatalogList = () => {
-  const [index, setIndex] = useState(0);
-  const campers = pagination(useSelector(selectAllCampers));
+const CatalogList = ({ newArr, upDataArr, isActivBtn = true }) => {
   return (
-    <div>
-      <ul className={css.camperList}>
-        {Array.isArray(campers) &&
-          campers[index].map(camper => (
+    <div className={css.campersListBox}>
+      <ul className={css.campersList}>
+        {Array.isArray(newArr) &&
+          newArr.map(camper => (
             <li key={camper._id}>
               <CatalogItem item={camper} />
             </li>
           ))}
       </ul>
-      <button
-        type="submit"
-        onClick={() => {
-          setIndex(index + 1);
-        }}
-      >
-        Load more
-      </button>
+      {isActivBtn && (
+        <button
+          className={css.buttonLoadMore}
+          type="submit"
+          onClick={() => {
+            upDataArr(true);
+          }}
+        >
+          Load more
+        </button>
+      )}
     </div>
   );
 };

@@ -1,4 +1,5 @@
 import css from './FilterConditions.module.css';
+import icons from '../../assets/icon/symbol-defs.svg';
 
 const FilterConditions = ({ hasAccepted, handleChange }) => {
   return (
@@ -16,7 +17,7 @@ const FilterConditions = ({ hasAccepted, handleChange }) => {
           />
           <div className={css.radioBtnBox}>
             <svg className={css.filterIcons}>
-              <use href={`${icons}#icon-AC`} />
+              <use href={`${icons}#AC`} />
             </svg>
             <p className={css.camperFilterBtnText}>AC</p>
           </div>
@@ -34,7 +35,7 @@ const FilterConditions = ({ hasAccepted, handleChange }) => {
               className={css.filterIcons}
               style={{ stroke: 'black', fill: '#fff' }}
             >
-              <use href={`${icons}#icon-automatic`} />
+              <use href={`${icons}#Container`} />
             </svg>
             <p className={css.camperFilterBtnText}>Automatic</p>
           </div>
@@ -52,7 +53,7 @@ const FilterConditions = ({ hasAccepted, handleChange }) => {
               className={css.filterIcons}
               style={{ stroke: 'black', fill: '#fff' }}
             >
-              <use href={`${icons}#icon-kitchen`} />
+              <use href={`${icons}#kitchen`} />
             </svg>
             <p className={css.camperFilterBtnText}>Kitchen</p>
           </div>
@@ -70,7 +71,7 @@ const FilterConditions = ({ hasAccepted, handleChange }) => {
               className={css.filterIcons}
               style={{ stroke: 'black', fill: '#fff' }}
             >
-              <use href={`${icons}#icon-TV`} />
+              <use href={`${icons}#TV`} />
             </svg>
             <p className={css.camperFilterBtnText}>TV</p>
           </div>
@@ -88,7 +89,7 @@ const FilterConditions = ({ hasAccepted, handleChange }) => {
               className={css.filterIcons}
               style={{ stroke: 'black', fill: '#fff' }}
             >
-              <use href={`${icons}#icon-shower`} />
+              <use href={`${icons}#shower`} />
             </svg>
             <p className={css.camperFilterBtnText}>Shower/WC</p>
           </div>

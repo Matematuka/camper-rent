@@ -11,6 +11,7 @@
 }
 
 .camperEquipmentBox {
+  width: 360px;
   margin-top: 24px;
   display: flex;
   flex-direction: row;
@@ -19,13 +20,11 @@
 }
 
 .camperCheckBoxBtn {
-  width: 113px;
-  height: 95px;
-  padding: 17px 18px;
-  border: 1px solid rgba(16, 24, 40, 0.2);
-  border-radius: 10px;
-
   display: flex;
+  border-radius: 10px;
+  height: 95px;
+  width: 110px;
+  border: 1px solid rgba(16, 24, 40, 0.2);
   align-items: center;
   justify-content: center;
   gap: 8px;

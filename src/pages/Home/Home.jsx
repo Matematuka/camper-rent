@@ -1,18 +1,10 @@
-import Navigation from '../../components/Navigation/Navigation';
 import css from './Home.module.css';
-import clsx from 'clsx';
-
-const getNavLinkClassName = ({ isActive }) =>
-  clsx(css.navLink, {
-    [css.active]: isActive,
-  });
 
 const Home = () => {
   return (
     <div className={css.homePage}>
       <header>
         <div className={css.header}>
-          <Navigation getNavLinkClassName={getNavLinkClassName} />
           <h1 className={css.title}>CAMPER RENT IN UKRANE</h1>
         </div>
       </header>

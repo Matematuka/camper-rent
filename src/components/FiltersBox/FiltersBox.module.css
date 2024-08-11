@@ -4,6 +4,7 @@
 
 .locationBox {
   margin-bottom: 32px;
+  height: 88px;
 }
 
 .locationTitle {
@@ -14,10 +15,46 @@
   color: rgba(16, 24, 40, 0.6);
 }
 
+.locationInput {
+  width: 360px;
+  max-height: 56px;
+  margin-bottom: 14px;
+  padding: 18px;
+  border: none;
+  border-radius: 10px;
+  background-color: #f7f7f7;
+}
+
 .filterBoxTitle {
   margin-bottom: 14px;
   font-size: 16px;
   font-weight: 500;
   line-height: 150%;
   color: rgba(16, 24, 40, 0.6);
+}
+
+.errorMessage {
+  margin-bottom: 14px;
+  font-size: 14px;
+  color: red;
+}
+
+.buttonSearch {
+  width: 166px;
+  height: 56px;
+  margin-top: 64px;
+  padding: 16px 40px;
+  border-radius: 200px;
+  background: #e44848;
+
+  line-height: 150%;
+  letter-spacing: -0.01em;
+  color: #fff;
+
+  transition: 0.5s;
+}
+
+.buttonSearch:hover {
+  background: #b13737;
+  transition: 0.5s;
 }
