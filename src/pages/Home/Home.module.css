@@ -6,8 +6,8 @@
   height: 200px;
   background-color: #2a2a2a;
   background-image: linear-gradient(
-      rgba(8, 8, 197, 0.5),
-      rgba(229, 226, 7, 0.901)
+      rgba(13, 6, 6, 0.797),
+      rgba(147, 136, 169, 0.894)
     ),
     url(/src/assets/images/stock-photo-summer-tourism-with-rv-campers-parked-in-a-row-in-a-caravan-parking-area-best-option-for-travel-1797003109.jpg);
   background-size: cover;
@@ -33,7 +33,7 @@
 }
 
 .contacts {
-  margin-top: 100px;
+  margin-top: 50px;
   font-size: 24px;
   font-weight: 500;
   background-color: #fff;

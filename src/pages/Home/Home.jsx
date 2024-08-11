@@ -17,7 +17,6 @@ const Home = () => {
         option of short-term rentals (from 2 days to several weeks) and are
         ready to offer long-term rentals from several weeks.
       </p>
-
       <p className={css.contacts}>
         CAMPER RENT IN UKRAINE: Kyiv tel. +38 (067) 800-5050.
       </p>
