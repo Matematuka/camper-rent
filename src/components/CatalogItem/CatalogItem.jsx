@@ -1,7 +1,8 @@
+import  { useState } from 'react';
 import ModalWindow from '../Modal/ModalWindow/ModalWindow';
-import { useState } from 'react';
+import css from './CatalogItem.module.css';
+import icons from '../../assets/icon/symbol-defs.svg';
 import { useDispatch } from 'react-redux';
-
 import {
   addItemLocalStorage,
   addItemLocalStorageID,
@@ -11,27 +12,18 @@ import {
 import { dataLocal, dataLocalID } from '../../constans/constans';
 import { addIsFavorites } from '../../redux/favorites/operations';
 
-import css from './CatalogItem.module.css';
-import icons from '../../assets/icon/symbol-defs.svg';
-
-export const CatalogItem = ({ item }) => {
+const CatalogItem = ({ item }) => {
   const dispatch = useDispatch();
 
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [newStyle, setNewStyle] = useState(() => {
     const test = dataLocalID();
-    const isActive = test.filter(element => element === item._id);
-    if (isActive.length > 0) return false;
-    return true;
+    const isActive = test.includes(item._id);
+    return !isActive;
   });
 
-  const openModal = () => {
-    setModalIsOpen(true);
-  };
-
-  const closeModal = () => {
-    setModalIsOpen(false);
-  };
+  const openModal = () => setModalIsOpen(true);
+  const closeModal = () => setModalIsOpen(false);
 
   const saveItem = newStyle => {
     if (newStyle) {
@@ -117,13 +109,16 @@ export const CatalogItem = ({ item }) => {
             <span>{item.details.beds} beds</span>
           </li>
           <li className={css.descriptionItem}>
-            <svg className={css.descriptionIcons} style={{ stroke: 'black' }}>
+            <svg
+              className={css.descriptionIcons}
+              style={{ stroke: '#000', fill: '#fff' }}
+            >
               <use href={`${icons}#AC`} />
             </svg>
             <span>AC</span>
           </li>
         </ul>
-        <button className={css.buttonShowMore} onClick={() => openModal()}>
+        <button className={css.buttonShowMore} onClick={openModal}>
           Show more
         </button>
         <button
@@ -139,12 +134,9 @@ export const CatalogItem = ({ item }) => {
           </svg>
         </button>
       </div>
-      <ModalWindow
-        modalIsOpen={modalIsOpen}
-        openModal={openModal}
-        closeModal={closeModal}
-        item={item}
-      />
+      {modalIsOpen && <ModalWindow closeModal={closeModal} item={item} />}
     </div>
   );
 };
+
+export default CatalogItem;

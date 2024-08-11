@@ -1,4 +1,4 @@
-import { CatalogItem } from '../CatalogItem/CatalogItem';
+import CatalogItem from '../CatalogItem/CatalogItem';
 import css from './CatalogList.module.css';
 
 const CatalogList = ({ newArr, upDataArr, isActivBtn = true }) => {

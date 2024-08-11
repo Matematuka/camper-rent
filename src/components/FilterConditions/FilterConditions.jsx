@@ -16,7 +16,10 @@ const FilterConditions = ({ hasAccepted, handleChange }) => {
             onChange={handleChange}
           />
           <div className={css.radioBtnBox}>
-            <svg className={css.filterIcons}>
+            <svg
+              className={css.filterIcons}
+              style={{ stroke: '#000', fill: '#fff' }}
+            >
               <use href={`${icons}#AC`} />
             </svg>
             <p className={css.camperFilterBtnText}>AC</p>

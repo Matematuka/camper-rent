@@ -2,7 +2,7 @@ import { useState } from 'react';
 import css from './FiltersBox.module.css';
 import FilterConditions from '../FilterConditions/FilterConditions';
 import FilterType from '../FilterType/FilterType';
-import { Formik, Field, Form } from 'formik';
+import { Formik, Field, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 
 const LocationSchema = Yup.object().shape({
@@ -28,9 +28,7 @@ const FiltersBox = () => {
         <Formik
           initialValues={{ location: '' }}
           validationSchema={LocationSchema}
-          onSubmit={values => {
-            console.log(values);
-          }}
+          onSubmit={handleChange}
         >
           {({ errors, touched }) => (
             <Form>

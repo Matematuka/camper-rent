@@ -45,7 +45,7 @@ const Favourites = () => {
         ) : (
           <p className={css.campersText}>
             Unfortunately, your list of favorites is empty. <br /> Go to the
-            catalog and choose your dream camper.😉
+            catalog and choose your best camper.
           </p>
         )}
       </div>

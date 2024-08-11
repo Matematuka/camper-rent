@@ -36,7 +36,7 @@ const FavoritesItem = ({ item, isNewArr }) => {
             <svg className={css.reviewsIcons}>
               <use href={`${icons}#star`} />
             </svg>
-            {item.rating}({item.reviews.length} Reviews)
+            {item.rating} ({item.reviews.length} Reviews)
           </p>
           <p className={css.itemSubTitleLocation}>
             <svg className={css.reviewsIconsLocation}>
@@ -93,25 +93,20 @@ const FavoritesItem = ({ item, isNewArr }) => {
             <span>AC</span>
           </li>
         </ul>
-        <button className={css.buttonShowMore} onClick={() => openModal()}>
+        <button className={css.buttonShowMore} onClick={openModal}>
           Show more
         </button>
-        <button style={{ background: 'inherit' }} onClick={() => saveItem()}>
+        <button style={{ background: 'inherit' }} onClick={saveItem}>
           <svg
             className={`${
               newStyle ? css.buttonIsFavotes : css.buttonFavotesIsActive
             }`}
           >
-            <use href={`${icons}#heartDefault`} />
+            <use href={`${icons}#HeartDefault`} />
           </svg>
         </button>
       </div>
-      <ModalWindow
-        modalIsOpen={modalIsOpen}
-        openModal={openModal}
-        closeModal={closeModal}
-        item={item}
-      />
+      {modalIsOpen && <ModalWindow closeModal={closeModal} item={item} />}
     </div>
   );
 };
