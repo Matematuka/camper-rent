@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import clsx from 'clsx';
 import ModalForm from '../ModalForm/ModalForm';
 import icons from '../../../assets/icon/symbol-defs.svg';
@@ -8,6 +8,19 @@ import Reviews from '../../Revievs/Reviews';
 
 const ModalWindow = ({ closeModal, item }) => {
   const [tab, setTab] = useState('features');
+
+  useEffect(() => {
+    const handleKeyDown = event => {
+      if (event.key === 'Escape') {
+        closeModal();
+      }
+    };
+
+    document.addEventListener('keydown', handleKeyDown);
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [closeModal]);
 
   return (
     <div className={css.modalOverlay} onClick={closeModal}>
